@@ -27,6 +27,7 @@ public class CustomQueue {
         }
         int data = arr[0];
         System.arraycopy(arr, 1, arr, 0, size - 1);
+        arr[size] = 0;
         size--;
         return data;
     }
