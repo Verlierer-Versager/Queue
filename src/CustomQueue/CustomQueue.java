@@ -57,8 +57,4 @@ public class CustomQueue {
         }
         return false;
     }
-
-    public int getIndexFirst() {
-        return indexFirst;
-    }
 }
