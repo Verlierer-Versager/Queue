@@ -15,11 +15,7 @@ public class CustomQueue {
 
     public void add(int data) {
         if (arr.length == indexLast) {
-            if (indexFirst > 10) {
-                System.arraycopy(arr, indexFirst, arr, 0, size);
-                indexLast -= indexFirst;
-                indexFirst = 0;
-            } else {
+            if (!removeNonexistentElements(0)) {
                 int newSize = (int) (arr.length * 1.5 + 1);
                 arr = Arrays.copyOf(arr, newSize);
             }
@@ -34,8 +30,10 @@ public class CustomQueue {
             return null;
         }
         int data = arr[indexFirst];
-        indexFirst++;
-        size--;
+        if(!removeNonexistentElements(10)) {
+            indexFirst++;
+            size--;
+        }
         return data;
     }
 
@@ -48,6 +46,16 @@ public class CustomQueue {
 
     public boolean isEmpty() {
         return size == 0;
+    }
+
+    private boolean removeNonexistentElements(int limit) {
+        if (indexFirst > limit) {
+            System.arraycopy(arr, indexFirst, arr, 0, size);
+            indexLast -= indexFirst;
+            indexFirst = 0;
+            return true;
+        }
+        return false;
     }
 
 }
