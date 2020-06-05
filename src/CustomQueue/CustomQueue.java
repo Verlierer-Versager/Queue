@@ -14,9 +14,15 @@ public class CustomQueue {
     }
 
     public void add(int data) {
-        if (arr.length == size) {
-            int newSize = (int) (arr.length * 1.5 + 1);
-            arr = Arrays.copyOf(arr, newSize);
+        if (arr.length == indexLast) {
+            if (indexFirst > 10) {
+                System.arraycopy(arr, indexFirst, arr, 0, size);
+                indexLast -= indexFirst;
+                indexFirst = 0;
+            } else {
+                int newSize = (int) (arr.length * 1.5 + 1);
+                arr = Arrays.copyOf(arr, newSize);
+            }
         }
         arr[indexLast] = data;
         size++;
