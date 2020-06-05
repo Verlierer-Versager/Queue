@@ -30,7 +30,7 @@ public class CustomQueue {
             return null;
         }
         int data = arr[indexFirst];
-        if(!removeNonexistentElements(10)) {
+        if(!removeNonexistentElements((int) (0.2*arr.length))) {
             indexFirst++;
             size--;
         }
@@ -58,4 +58,7 @@ public class CustomQueue {
         return false;
     }
 
+    public int getIndexFirst() {
+        return indexFirst;
+    }
 }

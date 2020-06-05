@@ -7,11 +7,9 @@ public class Main {
 
         System.out.println("is empty: " + que.isEmpty());
 
-        que.add(0);
-        que.add(1);
-        que.add(2);
-        que.add(3);
-        que.add(4);
+        for(int i =0; i<15; i++){
+            que.add(i);
+        }
 
         System.out.println("size: " + que.size());
         System.out.println("is empty: " + que.isEmpty());
